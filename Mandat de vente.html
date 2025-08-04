@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographie : Le Guide Ultime du Mandat de Vente</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flowchart-item {
+            border: 2px solid #376FAD;
+            background-color: #ffffff;
+            color: #0D3A63;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex-grow: 1;
+        }
+        .flowchart-arrow {
+            font-size: 2.5rem;
+            color: #376FAD;
+            line-height: 1;
+            margin: 0 1rem;
+        }
+        .kpi-value {
+            font-weight: 900;
+            color: #0D3A63;
+        }
+        .logo {
+            max-width: 250px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body class="bg-[#ddeeff]">
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <header class="text-center mb-12">
+            <img src="https://b3583655.smushcdn.com/3583655/wp-content/uploads/elementor/thumbs/amaliafrance-logo-qwzvfbed8zv9jhz4t24v5o7ib3n6wearufi8bolyg2.jpg?lossy=2&strip=1&webp=1" alt="Logo Amalia Immo" class="logo mb-6">
+            <h1 class="text-4xl md:text-6xl font-black text-[#0D3A63] mb-4">Le Guide Ultime du Mandat de Vente</h1>
+            <p class="text-lg md:text-xl text-[#0D3A63] max-w-3xl mx-auto">Comprendre pour mieux choisir : comment le bon mandat peut transformer la vente de votre bien immobilier.</p>
+        </header>
+
+        <section id="definition" class="mb-12">
+            <div class="bg-white rounded-lg shadow-xl p-8 text-center">
+                <span class="text-6xl mb-4 block text-[#0D3A63]">📜</span>
+                <h2 class="text-3xl font-bold text-[#0D3A63] mb-4">Qu'est-ce qu'un Mandat de Vente ?</h2>
+                <p class="text-lg text-gray-700 max-w-4xl mx-auto">
+                    C'est le contrat <strong class="text-[#376FAD]">légal et obligatoire</strong> qui vous lie à un professionnel de l'immobilier. Il formalise la mission de l'agent : vendre votre bien dans les meilleures conditions. Ce document protège les deux parties et définit clairement les engagements, le prix de vente et la rémunération.
+                </p>
+            </div>
+        </section>
+
+        <section id="comparaison" class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-[#0D3A63] mb-8">Le Choix Crucial : Mandat Simple vs. Mandat Exclusif</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="bg-white rounded-lg shadow-xl p-6 border-t-8 border-gray-400">
+                    <h3 class="text-2xl font-bold text-gray-600 mb-4 text-center">Mandat Simple</h3>
+                    <p class="text-gray-600 mb-6 text-center">Vous pouvez confier la vente à plusieurs agences et vendre par vous-même. Une flexibilité apparente qui cache souvent des inconvénients majeurs.</p>
+                    <div class="chart-container h-64 md:h-80">
+                        <canvas id="simpleMandateChart"></canvas>
+                    </div>
+                    <ul class="mt-6 space-y-2 text-gray-700">
+                        <li><span class="font-bold text-red-500 mr-2">❌</span><strong>Concurrence des agences :</strong> Moins d'investissement par agent.</li>
+                        <li><span class="font-bold text-red-500 mr-2">❌</span><strong>Surexposition du bien :</strong> Annonces multiples, parfois à des prix différents.</li>
+                        <li><span class="font-bold text-red-500 mr-2">❌</span><strong>Image dévalorisée :</strong> Le bien peut paraître difficile à vendre.</li>
+                        <li><span class="font-bold text-red-500 mr-2">❌</span><strong>Négociation accrue :</strong> Les acheteurs sont incités à négocier à la baisse.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-xl p-6 border-t-8 border-[#376FAD]">
+                    <h3 class="text-2xl font-bold text-[#0D3A63] mb-4 text-center">Mandat Exclusif</h3>
+                    <p class="text-gray-700 mb-6 text-center">Vous confiez la vente à une seule agence. Un partenariat basé sur la confiance pour une efficacité et une performance maximales.</p>
+                    <div class="chart-container h-64 md:h-80">
+                        <canvas id="exclusiveMandateChart"></canvas>
+                    </div>
+                    <ul class="mt-6 space-y-2 text-gray-700">
+                        <li><span class="font-bold text-green-500 mr-2">✅</span><strong>Agent 100% investi :</strong> Un interlocuteur unique et dédié à votre projet.</li>
+                        <li><span class="font-bold text-green-500 mr-2">✅</span><strong>Marketing de qualité :</strong> Stratégie de communication cohérente et maîtrisée.</li>
+                        <li><span class="font-bold text-green-500 mr-2">✅</span><strong>Valorisation du bien :</strong> L'effet de rareté préserve la valeur et attire les acheteurs.</li>
+                        <li><span class="font-bold text-green-500 mr-2">✅</span><strong>Vente plus rapide :</strong> Des résultats prouvés et moins de négociation.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="kpis" class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-[#0D3A63] mb-8">L'Avantage Exclusif en Chiffres</h2>
+            <p class="text-lg text-center text-gray-700 max-w-3xl mx-auto mb-10">Les données parlent d'elles-mêmes. Le mandat exclusif n'est pas juste une option, c'est une stratégie gagnante pour vendre mieux et plus vite.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-lg shadow-xl p-6 text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Délai de Vente</h3>
+                    <p class="kpi-value text-6xl">2x</p>
+                    <p class="text-gray-600">plus rapide en moyenne (3-5 mois contre 6-9 mois)</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-xl p-6 text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Prix de Vente</h3>
+                    <p class="kpi-value text-6xl">-10%</p>
+                    <p class="text-gray-600">de baisse potentielle évitée par rapport au mandat simple</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-xl p-6 text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Visites Qualifiées</h3>
+                    <p class="kpi-value text-6xl">~50%</p>
+                    <p class="text-gray-600">de visites en moins, mais mieux ciblées (8-10 contre 15-20)</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-xl p-6 text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Satisfaction Client</h3>
+                    <div class="chart-container h-48">
+                        <canvas id="satisfactionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="processus" class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-[#0D3A63] mb-8">Votre Partenaire Exclusif : Un Processus Maîtrisé</h2>
+            <p class="text-lg text-center text-gray-700 max-w-3xl mx-auto mb-10">Avec un mandat exclusif, vous bénéficiez d'un arsenal d'outils et de services premium pour valoriser votre bien et accélérer la vente.</p>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <div class="flowchart-item">
+                    <span class="text-4xl block mb-2">📸</span>
+                    <h4 class="font-bold">Photos HDR & Visite Virtuelle</h4>
+                </div>
+                <div class="flowchart-arrow hidden md:block">→</div>
+                 <div class="flowchart-arrow block md:hidden">↓</div>
+                <div class="flowchart-item">
+                    <span class="text-4xl block mb-2">📢</span>
+                    <h4 class="font-bold">Marketing Ciblé & Visibilité Maximale</h4>
+                </div>
+                <div class="flowchart-arrow hidden md:block">→</div>
+                 <div class="flowchart-arrow block md:hidden">↓</div>
+                <div class="flowchart-item">
+                    <span class="text-4xl block mb-2">🎯</span>
+                    <h4 class="font-bold">Sélection Rigoureuse des Acquéreurs</h4>
+                </div>
+                <div class="flowchart-arrow hidden md:block">→</div>
+                 <div class="flowchart-arrow block md:hidden">↓</div>
+                <div class="flowchart-item">
+                    <span class="text-4xl block mb-2">🤝</span>
+                    <h4 class="font-bold">Négociation Sécurisée & Suivi Complet</h4>
+                </div>
+            </div>
+        </section>
+
+        <section id="documents" class="mb-12">
+             <div class="bg-white rounded-lg shadow-xl p-8">
+                <h2 class="text-3xl font-bold text-center text-[#0D3A63] mb-8">Les Essentiels : Documents Obligatoires</h2>
+                <div class="max-w-2xl mx-auto text-gray-700">
+                     <p class="text-center mb-6">Pour une transaction transparente et conforme à la loi (Hoguet & Alur), ces documents sont indispensables à la signature du mandat.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✅</span> <div><strong class="text-[#376FAD]">Titre de Propriété :</strong> Prouve que vous êtes bien le propriétaire.</div></li>
+                        <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✅</span> <div><strong class="text-[#376FAD]">Diagnostics Techniques :</strong> DPE, amiante, plomb, etc. pour informer l'acheteur.</div></li>
+                        <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✅</span> <div><strong class="text-[#376FAD]">Documents de Copropriété :</strong> Si applicable (charges, PV d'AG...).</div></li>
+                        <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✅</span> <div><strong class="text-[#376FAD]">Plan Cadastral :</strong> Identifie précisément le bien.</div></li>
+                        <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✅</span> <div><strong class="text-[#376FAD]">Justificatif d'Identité :</strong> Pour authentifier votre signature.</div></li>
+                    </ul>
+                </div>
+             </div>
+        </section>
+
+        <footer class="text-center mt-12 pt-8 border-t border-[#6AB4E5]">
+            <h2 class="text-3xl font-bold text-[#0D3A63] mb-4">Prêt à vendre dans les meilleures conditions ?</h2>
+            <p class="text-lg text-[#0D3A63] max-w-3xl mx-auto">Choisissez la stratégie gagnante. Optez pour le mandat exclusif et laissez-nous piloter votre projet vers le succès.</p>
+        </footer>
+
+    </main>
+
+    <script>
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const wrapLabel = (label) => {
+            const maxLength = 16;
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        };
+        
+        const amaliaBrandColors = {
+            darkBlue: '#0D3A63',
+            mediumBlue: '#376FAD',
+            lightBlue: '#6AB4E5',
+            gray: '#d1d5db',
+        };
+
+        const commonChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: amaliaBrandColors.darkBlue,
+                        font: {
+                            size: 14
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.05)'
+                    },
+                    ticks: {
+                        color: amaliaBrandColors.darkBlue
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        color: amaliaBrandColors.darkBlue
+                    }
+                }
+            }
+        };
+
+        new Chart(document.getElementById('simpleMandateChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Investissement Agent', 'Qualité Marketing', 'Contrôle du Prix'],
+                datasets: [{
+                    label: 'Niveau d\'efficacité',
+                    data: [40, 50, 60],
+                    backgroundColor: 'rgba(156, 163, 175, 0.7)',
+                    borderColor: amaliaBrandColors.gray,
+                    borderWidth: 1
+                }]
+            },
+            options: commonChartOptions
+        });
+
+        new Chart(document.getElementById('exclusiveMandateChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Investissement Agent', 'Qualité Marketing', 'Contrôle du Prix'],
+                datasets: [{
+                    label: 'Niveau d\'efficacité',
+                    data: [95, 90, 85],
+                    backgroundColor: amaliaBrandColors.mediumBlue,
+                    borderColor: amaliaBrandColors.darkBlue,
+                    borderWidth: 1
+                }]
+            },
+            options: commonChartOptions
+        });
+
+        new Chart(document.getElementById('satisfactionChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Mandat Exclusif', 'Mandat Simple'],
+                datasets: [{
+                    label: 'Taux de Satisfaction',
+                    data: [92, 65],
+                    backgroundColor: [amaliaBrandColors.mediumBlue, 'rgba(156, 163, 175, 0.7)'],
+                    borderColor: [amaliaBrandColors.darkBlue, amaliaBrandColors.gray],
+                    borderWidth: 2,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: amaliaBrandColors.darkBlue,
+                            font: { size: 12 }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback,
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed !== null) {
+                                    label += context.parsed + '%';
+                                }
+                                return label;
+                            }
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Taux de Satisfaction Client',
+                        color: amaliaBrandColors.darkBlue,
+                        font: { size: 16, weight: 'bold' }
+                    }
+                },
+                cutout: '60%'
+            }
+        });
+    </script>
+</body>
+</html>
